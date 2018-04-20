@@ -1,7 +1,7 @@
 import {API_BASE_URL} from '../config';
 
 export const FETCH_CHEESE_REQUEST='FETCH_CHEESE_REQUEST'
-export const fetchCheeseRequestT=()=>({
+export const fetchCheeseRequest=()=>({
     type:FETCH_CHEESE_REQUEST
 });
 
@@ -12,14 +12,16 @@ export const fetchCheeseSuccess=(cheeses)=>({
 });
 
 export const FETCH_CHEESE_ERROR='FETCH_CHEESE_ERROR'
-export const fetchCheeseError=()=>({
-    type:FETCH_CHEESE_ERROR
+export const fetchCheeseError=(error)=>({
+    type:FETCH_CHEESE_ERROR,
+    error
 });
 
 
 export const fetchCheeses =()=>{
     return(dispatch)=>{
         fetch(`${API_BASE_URL}/api/cheeses`)
+        .then(()=>dispatch(fetchCheeseRequest()))
         .then(res=> res.json())
         .then(cheeses=> dispatch(fetchCheeseSuccess(cheeses)))
         .then(cheeses=> console.log(cheeses))
