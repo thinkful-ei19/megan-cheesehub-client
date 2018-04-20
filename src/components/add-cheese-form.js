@@ -19,7 +19,7 @@ export class AddCheeseForm extends React.Component{
                 <Field 
                     component="input"
                     type="text"
-                    name="cheeseName"
+                    name="cheese"
                     placeholder="Add New Cheese Here"
                 />
                 

@@ -27,9 +27,9 @@ export default (state=initialState, action) =>{
     })
   }
   else if(action.type === ADD_CHEESE){
-    console.log(action.cheese)
+    console.log(action.cheese.cheese)
     return Object.assign({}, state, {
-      cheeses:[...state.cheeses, action.cheese],
+      cheeses:[...state.cheeses, action.cheese.cheese],
       error: null,
       loading: false
     })
