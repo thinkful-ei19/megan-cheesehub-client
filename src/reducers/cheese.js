@@ -26,5 +26,12 @@ export default (state=initialState, action) =>{
       loading: false
     })
   }
+  else if(action.type === FETCH_CHEESE_ERROR){
+    return Object.assign({}, state, {
+      cheeses:[...state.cheeses, action.cheese],
+      error: null,
+      loading: false
+    })
+  }
     return state;
 }
