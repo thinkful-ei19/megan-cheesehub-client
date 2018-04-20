@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import CheeseList from './components/cheese-list';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
-        
+        <CheeseList />
       </div>
     );
   }
 }
 
-export default App;
+
+ 
+
+// connect()(App);
