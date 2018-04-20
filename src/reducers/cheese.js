@@ -1,4 +1,4 @@
-import {FETCH_CHEESE_SUCCESS, FETCH_CHEESE_REQUEST, FETCH_CHEESE_ERROR} from '../actions/actions';
+import {FETCH_CHEESE_SUCCESS, FETCH_CHEESE_REQUEST, FETCH_CHEESE_ERROR, ADD_CHEESE} from '../actions/actions';
 
 
 const initialState={
@@ -26,7 +26,8 @@ export default (state=initialState, action) =>{
       loading: false
     })
   }
-  else if(action.type === FETCH_CHEESE_ERROR){
+  else if(action.type === ADD_CHEESE){
+    console.log(action.cheese)
     return Object.assign({}, state, {
       cheeses:[...state.cheeses, action.cheese],
       error: null,

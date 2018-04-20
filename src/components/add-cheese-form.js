@@ -1,21 +1,25 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
-// import { addCheese } from '../actions/actions';
+import { addCheese } from '../actions/actions';
 
 
-class AddCheeseForm extends React.Component{ 
-
+export class AddCheeseForm extends React.Component{ 
+   onSubmit(value) {
+        return this.props.dispatch(addCheese(value))
+    }
     
     render(){
         return(
             <form
-                // onSubmit={}
-            
+                onSubmit={this.props.handleSubmit(value =>
+                    this.onSubmit(value)
+            )}
             >
+            <label htmlFor="add cheese">Add Cheese:</label>
                 <Field 
-                    component='input' 
-                    element='input' 
-                    name='cheeseName' 
+                    component="input"
+                    type="text"
+                    name="cheeseName"
                     placeholder="Add New Cheese Here"
                 />
                 

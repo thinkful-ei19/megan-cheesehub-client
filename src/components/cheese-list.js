@@ -26,7 +26,7 @@ class CheeseList extends React.Component{
 }
 
 const mapStateToProps = (state) =>({
-    cheeses: state.cheeses
+    cheeses: state.auth.cheeses
 })
 
 export default connect(mapStateToProps)(CheeseList);

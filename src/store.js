@@ -1,7 +1,12 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers/cheese';
+import {reducer as formReducer} from 'redux-form';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+
+const store = createStore( combineReducers({
+    form: formReducer,
+    auth: reducer,
+}), applyMiddleware(thunk));
 
 export default store;
