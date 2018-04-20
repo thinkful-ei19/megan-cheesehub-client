@@ -1,6 +1,6 @@
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import reducer from './reducer';
+import reducer from './reducers/cheese';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 

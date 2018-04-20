@@ -1,8 +1,10 @@
-import {FETCH_CHEESE_SUCCESS} from './actions';
+import {FETCH_CHEESE_SUCCESS} from '../actions/actions';
 
 
 const initialState={
-  cheeses:[]
+  cheeses:[],
+  loading: false,
+  error: null
 };
 
 export default (state=initialState, action) =>{

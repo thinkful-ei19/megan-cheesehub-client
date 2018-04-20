@@ -1,11 +1,19 @@
-import {API_BASE_URL} from './config';
+import {API_BASE_URL} from '../config';
 
-
+export const FETCH_CHEESE_REQUEST='FETCH_CHEESE_REQUEST'
+export const fetchCheeseRequestT=()=>({
+    type:FETCH_CHEESE_REQUEST
+});
 
 export const FETCH_CHEESE_SUCCESS='FETCH_CHEESE_SUCCESS'
 export const fetchCheeseSuccess=(cheeses)=>({
     type:FETCH_CHEESE_SUCCESS,
     cheeses
+});
+
+export const FETCH_CHEESE_ERROR='FETCH_CHEESE_ERROR'
+export const fetchCheeseError=()=>({
+    type:FETCH_CHEESE_ERROR
 });
 
 
