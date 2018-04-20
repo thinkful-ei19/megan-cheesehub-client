@@ -18,13 +18,17 @@ export const fetchCheeseError=(error)=>({
 });
 
 
-export const fetchCheeses =()=>{
-    return(dispatch)=>{
+export const fetchCheeses =()=>dispatch=>{
+    dispatch(fetchCheeseRequest());
+    
         fetch(`${API_BASE_URL}/api/cheeses`)
-        .then(()=>dispatch(fetchCheeseRequest()))
-        .then(res=> res.json())
+        .then(res => 
+            res.json()
+        )
         .then(cheeses=> dispatch(fetchCheeseSuccess(cheeses)))
-        .then(cheeses=> console.log(cheeses))
-        .catch(err=> console.log(err))
-    }
+        .catch(err=> {
+            console.log(err);
+            dispatch(fetchCheeseError(err))
+        })
+    
 }
